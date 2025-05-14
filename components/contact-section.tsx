@@ -1,44 +1,53 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useRef, useState } from "react"
-import { motion, useInView } from "framer-motion"
-import { MessageSquare, Mail, Phone, Send, Github, Linkedin } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useLanguage } from "@/contexts/language-context"
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  MessageSquare,
+  Mail,
+  Phone,
+  Send,
+  Github,
+  Linkedin,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function ContactSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
-  const { t } = useLanguage()
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const { t } = useLanguage();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
-  })
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // Construct the mailto URL with form data
-    const subject = encodeURIComponent(formState.subject)
+    const subject = encodeURIComponent(formState.subject);
     const body = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`,
-    )
+      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
+    );
 
     // Open the default email client with pre-filled information
-    window.location.href = `mailto:harun24896@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:harun24896@gmail.com?subject=${subject}&body=${body}`;
 
     // Reset the form after opening email client
     setFormState({
@@ -46,8 +55,8 @@ export default function ContactSection() {
       email: "",
       subject: "",
       message: "",
-    })
-  }
+    });
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -57,7 +66,7 @@ export default function ContactSection() {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -66,7 +75,7 @@ export default function ContactSection() {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   const contactInfo = [
     {
@@ -74,16 +83,18 @@ export default function ContactSection() {
       title: "Email",
       value: "harun24896@gmail.com",
       link: "mailto:harun24896@gmail.com",
-      color: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
+      color:
+        "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "WhatsApp",
       value: "085774133886",
       link: "https://wa.me/6285774133886", // Added country code 62 for Indonesia
-      color: "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20", // Changed to WhatsApp green
+      color:
+        "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20", // Changed to WhatsApp green
     },
-  ]
+  ];
 
   return (
     <section id="contact" className="relative overflow-hidden py-24 sm:py-32">
@@ -111,12 +122,15 @@ export default function ContactSection() {
               .split(" ")
               .map((word, i, arr) =>
                 i === arr.length - 1 ? (
-                  <span key={i} className="bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent">
+                  <span
+                    key={i}
+                    className="bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent"
+                  >
                     {word}{" "}
                   </span>
                 ) : (
                   <span key={i}>{word} </span>
-                ),
+                )
               )}
           </motion.h2>
           <motion.p
@@ -152,28 +166,33 @@ export default function ContactSection() {
                   href={info.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex flex-col items-center rounded-xl border ${info.color.split(" ")[2]} ${
+                  className={`flex flex-col items-center rounded-xl border ${
+                    info.color.split(" ")[2]
+                  } ${
                     info.color.split(" ")[0]
                   } p-6 text-center backdrop-blur-sm transition-transform hover:-translate-y-1 hover:shadow-md`}
                 >
-                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${info.color}`}>
+                  <div
+                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${info.color}`}
+                  >
                     {info.icon}
                   </div>
                   <h3 className="mb-2 text-lg font-semibold">{info.title}</h3>
                   <p className={info.color.split(" ")[1]}>{info.value}</p>
-                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                    {t(`contact.${info.title.toLowerCase()}.click`)}
-                  </p>
                 </a>
               ))}
             </div>
 
             <div className="rounded-2xl bg-gradient-to-r from-purple-500/20 to-cyan-500/20 p-8 backdrop-blur-sm">
-              <h3 className="mb-4 text-2xl font-bold">{t("contact.collaborate")}</h3>
-              <p className="mb-6 text-gray-700 dark:text-gray-300">{t("contact.collaborate.desc")}</p>
+              <h3 className="mb-4 text-2xl font-bold">
+                {t("contact.collaborate")}
+              </h3>
+              <p className="mb-6 text-gray-700 dark:text-gray-300">
+                {t("contact.collaborate.desc")}
+              </p>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/elepantio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-700 dark:text-white hover:bg-purple-500/20 transition-colors"
@@ -181,7 +200,15 @@ export default function ContactSection() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href="https://github.com/jeevva"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-700 dark:text-white hover:bg-purple-500/20 transition-colors"
+                >
+                  <Github className="h-5 w-5" />
+                </a>  
+                <a
+                  href="https://www.linkedin.com/in/harun-al-rosyid-bb5ba2161/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-700 dark:text-white hover:bg-blue-500/20 transition-colors"
@@ -199,7 +226,10 @@ export default function ContactSection() {
             >
               <div className="mb-6 grid gap-6 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-medium"
+                  >
                     {t("contact.name")}
                   </label>
                   <Input
@@ -213,7 +243,10 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-medium">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-medium"
+                  >
                     {t("contact.email")}
                   </label>
                   <Input
@@ -229,7 +262,10 @@ export default function ContactSection() {
                 </div>
               </div>
               <div className="mb-6">
-                <label htmlFor="subject" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="subject"
+                  className="mb-2 block text-sm font-medium"
+                >
                   {t("contact.subject")}
                 </label>
                 <Input
@@ -243,7 +279,10 @@ export default function ContactSection() {
                 />
               </div>
               <div className="mb-6">
-                <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-medium"
+                >
                   {t("contact.message")}
                 </label>
                 <Textarea
@@ -268,5 +307,5 @@ export default function ContactSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

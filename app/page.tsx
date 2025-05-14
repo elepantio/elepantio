@@ -38,8 +38,8 @@ export default function Home() {
         <CollaborationSection />
         <ProjectsSection />
         <PortfolioCarousel />
-        <TechStackMarquee />
-        <ClientShowcase />
+        {/* <TechStackMarquee />
+        <ClientShowcase /> */}
         <FeatureSection />
         <ServicesOfferingSection />
         <CreatorSection />

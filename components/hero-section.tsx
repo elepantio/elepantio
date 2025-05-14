@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, type MotionValue } from "framer-motion"
-import { ArrowDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
+import { useRef } from "react";
+import { motion, type MotionValue } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
 
 interface HeroSectionProps {
-  opacity: MotionValue<number>
-  scale: MotionValue<number>
+  opacity: MotionValue<number>;
+  scale: MotionValue<number>;
 }
 
 export default function HeroSection({ opacity, scale }: HeroSectionProps) {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const { t } = useLanguage()
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   const scrollToCollaboration = () => {
-    const section = document.getElementById("collaboration")
+    const section = document.getElementById("collaboration");
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
+      section.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <motion.section
@@ -54,7 +54,9 @@ export default function HeroSection({ opacity, scale }: HeroSectionProps) {
             </span>
           </h1>
 
-          <p className="mb-10 max-w-2xl text-xl text-gray-700 dark:text-gray-300">{t("hero.subtitle")}</p>
+          <p className="mb-10 max-w-2xl text-xl text-gray-700 dark:text-gray-300">
+            {t("hero.subtitle")}
+          </p>
 
           <div className="flex flex-col items-start space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <Button
@@ -85,7 +87,9 @@ export default function HeroSection({ opacity, scale }: HeroSectionProps) {
               <div className="h-3 w-3 rounded-full bg-red-500"></div>
               <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
               <div className="h-3 w-3 rounded-full bg-green-500"></div>
-              <div className="ml-2 text-xs font-medium text-gray-500">developer.js</div>
+              <div className="ml-2 text-xs font-medium text-gray-500">
+                developer.js
+              </div>
             </div>
             <pre className="overflow-x-auto rounded bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-800 dark:text-gray-300">
               <code>
@@ -108,24 +112,6 @@ function createAmazingProjects() {
           <div className="absolute -bottom-6 -right-6 h-40 w-40 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 opacity-20 blur-3xl" />
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full border border-purple-500/30 bg-white/30 text-gray-900 hover:bg-white/50 dark:bg-black/30 dark:text-white dark:hover:bg-black/50"
-            onClick={scrollToCollaboration}
-          >
-            <ArrowDown className="h-5 w-5" />
-          </Button>
-        </motion.div>
-      </motion.div>
     </motion.section>
-  )
+  );
 }

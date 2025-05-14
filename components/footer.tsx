@@ -1,27 +1,40 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowUp, Github, Linkedin } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
-import Tooltip from "./tooltip"
+import { motion } from "framer-motion";
+import { ArrowUp, Github, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
+import Tooltip from "./tooltip";
 
 export default function Footer() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, href: "https://github.com/yourusername", label: "GitHub" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-  ]
+    {
+      icon: <Github className="h-5 w-5" />,
+      href: "https://github.com/elepantio",
+      label: "GitHub",
+    },
+    {
+      icon: <Github className="h-5 w-5" />,
+      href: "https://github.com/jeevva",
+      label: "GitHub",
+    },
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      href: "https://www.linkedin.com/in/harun-al-rosyid-bb5ba2161/",
+      label: "LinkedIn",
+    },
+  ];
 
   return (
     <footer className="relative overflow-hidden py-16">
@@ -49,8 +62,8 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-6 text-gray-600 dark:text-gray-400"
             >
-              A Web Development showcase built by Harun Al Rosyid, featuring beautiful, functional, and user-friendly
-              applications.
+              A Web Development showcase built by Harun Al Rosyid, featuring
+              beautiful, functional, and user-friendly applications.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -80,7 +93,9 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="mb-4 text-lg font-semibold">{t("footer.quickLinks")}</h3>
+            <h3 className="mb-4 text-lg font-semibold">
+              {t("footer.quickLinks")}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -123,14 +138,18 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h3 className="mb-4 text-lg font-semibold">{t("footer.getInTouch")}</h3>
-            <p className="mb-4 text-gray-600 dark:text-gray-400">{t("footer.getInTouch.desc")}</p>
+            <h3 className="mb-4 text-lg font-semibold">
+              {t("footer.getInTouch")}
+            </h3>
+            <p className="mb-4 text-gray-600 dark:text-gray-400">
+              {t("footer.getInTouch.desc")}
+            </p>
             <Button
               className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white hover:from-cyan-600 hover:to-purple-700"
               onClick={() => {
-                const contactSection = document.getElementById("contact")
+                const contactSection = document.getElementById("contact");
                 if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" })
+                  contactSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
             >
@@ -152,7 +171,8 @@ export default function Footer() {
             </span>
             <Tooltip content="Look at the hero section subtitle carefully!">
               <span className="mt-1 text-xs italic text-gray-400 hover:text-purple-500 transition-colors duration-300 cursor-default">
-                Spotted a missing 'h'? You found our hidden message: h for human touch.
+                Spotted a missing 'h'? You found our hidden message: h for human
+                touch.
               </span>
             </Tooltip>
           </motion.div>
@@ -165,7 +185,8 @@ export default function Footer() {
             className="flex items-center text-sm text-gray-500"
           >
             <span className="flex items-center">
-              {t("footer.madeWith")} <span className="mx-1 text-red-500">❤</span> {t("footer.in")}
+              {t("footer.madeWith")}{" "}
+              <span className="mx-1 text-red-500">❤</span> {t("footer.in")}
             </span>
           </motion.div>
 
@@ -187,5 +208,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
