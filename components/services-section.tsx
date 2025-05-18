@@ -36,7 +36,7 @@ export default function ServicesSection() {
     },
     {
       title: "Mobile App Development",
-      description: "Creating native and cross-platform mobile applications for iOS and Android.",
+      description: "Creating native and cross-platform mobile applications Android.",
       icon: <Smartphone className="h-10 w-10" />,
       color: "from-purple-500 to-purple-600",
     },

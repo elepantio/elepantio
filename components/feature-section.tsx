@@ -38,7 +38,7 @@ export default function FeatureSection() {
     },
     {
       title: "Mobile Development",
-      description: "Creating native-like mobile experiences with React Native for iOS and Android platforms",
+      description: "Creating native-like mobile experiences with React Native Android platforms",
       icon: <Smartphone className="h-6 w-6" />,
       gradient: "from-blue-500 to-blue-600",
     },

@@ -119,7 +119,7 @@ export default function EducationSection() {
             <ul className="relative mb-4 space-y-2">
               <li className="flex items-start">
                 <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-500"></span>
-                <span>Advanced Programming Techniques</span>
+                <span>Programming Techniques</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-500"></span>
@@ -131,11 +131,7 @@ export default function EducationSection() {
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-500"></span>
-                <span>Software Engineering Principles</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-500"></span>
-                <span>Mobile Application Development</span>
+                <span>Software Application Development</span>
               </li>
             </ul>
           </motion.div>
@@ -156,7 +152,7 @@ export default function EducationSection() {
             <ul className="relative mb-4 space-y-2">
               <li className="flex items-start">
                 <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500"></span>
-                <span>Programming Languages (Java, Python, C++)</span>
+                <span>Programming Languages (Java, JavaScript, TypeScript )</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500"></span>

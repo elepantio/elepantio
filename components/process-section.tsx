@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { motion, useInView } from "framer-motion"
-import { Briefcase, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import ExperienceModal from "./experience-modal"
-import { useLanguage } from "@/contexts/language-context"
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { Briefcase, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import ExperienceModal from "./experience-modal";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function ProcessSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedExperience, setSelectedExperience] = useState<any>(null)
-  const { t } = useLanguage()
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedExperience, setSelectedExperience] = useState<any>(null);
+  const { t } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -22,7 +22,7 @@ export default function ProcessSection() {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -31,7 +31,7 @@ export default function ProcessSection() {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   const experienceData = [
     {
@@ -57,7 +57,16 @@ export default function ProcessSection() {
         "Successfully implemented push notification handling using Firebase Cloud Messaging (FCM).",
         "Developed the customer complaint handling feature, allowing users to submit and track complaint tickets directly via the app.",
       ],
-      technologies: ["TypeScript", "React Native", "React.js", "Next.js", "Redux", "Tailwind CSS", "Firebase", "SWR"],
+      technologies: [
+        "TypeScript",
+        "React Native",
+        "React.js",
+        "Next.js",
+        "Redux",
+        "Tailwind CSS",
+        "Firebase",
+        "SWR",
+      ],
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
@@ -82,7 +91,15 @@ export default function ProcessSection() {
         "Accelerated frontend development across teams by centralizing reusable UI components, improving consistency and reducing code duplication.",
         "Improved data reliability and accessibility across Nexsoft applications through a structured, centralized data management interface.",
       ],
-      technologies: ["React.js", "JavaScript", "Redux Toolkit", "Ant Design", "Axios", "NPM", "Bitbucket"],
+      technologies: [
+        "React.js",
+        "JavaScript",
+        "Redux Toolkit",
+        "Ant Design",
+        "Axios",
+        "NPM",
+        "Bitbucket",
+      ],
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
@@ -120,12 +137,33 @@ export default function ProcessSection() {
         "Search Console",
       ],
     },
-  ]
+  ];
 
   const openExperienceModal = (experience: any) => {
-    setSelectedExperience(experience)
-    setIsModalOpen(true)
-  }
+    setSelectedExperience(experience);
+    setIsModalOpen(true);
+  };
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    // Set initial dimensions
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isShow = windowDimensions.width > 768;
 
   return (
     <section id="process" className="relative overflow-hidden py-24 sm:py-32">
@@ -153,12 +191,15 @@ export default function ProcessSection() {
               .split(" ")
               .map((word, i, arr) =>
                 i === arr.length - 1 ? (
-                  <span key={i} className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                  <span
+                    key={i}
+                    className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
+                  >
                     {word}{" "}
                   </span>
                 ) : (
                   <span key={i}>{word} </span>
-                ),
+                )
               )}
           </motion.h2>
           <motion.p
@@ -193,28 +234,38 @@ export default function ProcessSection() {
           className="relative mt-16"
         >
           {/* Process line */}
-          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-purple-500 via-blue-500 to-cyan-500 opacity-20"></div>
+          {isShow && (
+            <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-purple-500 via-blue-500 to-cyan-500 opacity-20"></div>
+          )}
 
           {experienceData.map((experience, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`relative mb-16 flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+              className={`relative mb-16 flex ${
+                index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+              }`}
             >
-              <div className="flex-1"></div>
-
+              {isShow && <div className="flex-1"></div>}
               {/* Process dot */}
-              <div className="absolute left-1/2 top-0 -mt-2 -translate-x-1/2">
-                <div
-                  className={`flex h-10 w-10 items-center justify-center rounded-full ${experience.bgColor} ${experience.borderColor} border-2 ring-4 ring-white dark:ring-black`}
-                >
-                  <span className={experience.color}>{index + 1}</span>
+
+              {isShow && (
+                <div className="absolute left-1/2 top-0 -mt-2 -translate-x-1/2">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-full ${experience.bgColor} ${experience.borderColor} border-2 ring-4 ring-white dark:ring-black`}
+                  >
+                    <span className={experience.color}>{index + 1}</span>
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="flex-1">
                 <div
-                  className={`mx-8 cursor-pointer rounded-2xl border ${experience.borderColor} ${experience.bgColor} p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                  className={`mx-8 cursor-pointer rounded-2xl border ${
+                    experience.borderColor
+                  } ${
+                    experience.bgColor
+                  } p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg ${
                     index % 2 === 0 ? "text-right" : "text-left"
                   }`}
                   onClick={() => openExperienceModal(experience)}
@@ -225,8 +276,12 @@ export default function ProcessSection() {
                     {experience.icon}
                   </div>
                   <h3 className="mt-4 text-xl font-bold">{experience.title}</h3>
-                  <p className="mt-1 font-medium text-purple-600 dark:text-purple-400">{experience.company}</p>
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{experience.period}</p>
+                  <p className="mt-1 font-medium text-purple-600 dark:text-purple-400">
+                    {experience.company}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    {experience.period}
+                  </p>
                   <p className="mt-2 line-clamp-2">{experience.description}</p>
                   <p className="mt-2 text-sm font-medium text-blue-600 dark:text-blue-400">
                     {t("experience.viewDetails")}
@@ -238,7 +293,11 @@ export default function ProcessSection() {
         </motion.div>
       </div>
 
-      <ExperienceModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} experience={selectedExperience} />
+      <ExperienceModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        experience={selectedExperience}
+      />
     </section>
-  )
+  );
 }

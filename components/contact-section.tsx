@@ -291,7 +291,7 @@ export default function ContactSection() {
                   value={formState.message}
                   onChange={handleChange}
                   placeholder={t("contact.placeholder.message")}
-                  rows={6}
+                  rows={4}
                   required
                   className="border-gray-300 bg-white/50 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-800/50 dark:placeholder:text-gray-500"
                 />

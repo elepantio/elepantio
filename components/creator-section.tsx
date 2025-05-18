@@ -1,15 +1,17 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { User, Star, Award } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { User, Star, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
+import creatorImg from "./assets/harun.png";
+import Image from "next/image";
 
 export default function CreatorSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: false, amount: 0.3 })
-  const { t } = useLanguage()
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const { t } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,7 +21,7 @@ export default function CreatorSection() {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -28,7 +30,7 @@ export default function CreatorSection() {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   const achievements = [
     {
@@ -46,7 +48,7 @@ export default function CreatorSection() {
       title: t("creator.achievement3.title"),
       description: t("creator.achievement3.desc"),
     },
-  ]
+  ];
 
   return (
     <section id="creator" className="relative overflow-hidden py-24 sm:py-32">
@@ -74,12 +76,15 @@ export default function CreatorSection() {
               .split(" ")
               .map((word, i, arr) =>
                 i === arr.length - 1 ? (
-                  <span key={i} className="bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent">
+                  <span
+                    key={i}
+                    className="bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent"
+                  >
                     {word}{" "}
                   </span>
                 ) : (
                   <span key={i}>{word} </span>
-                ),
+                )
               )}
           </motion.h2>
           <motion.p
@@ -102,8 +107,10 @@ export default function CreatorSection() {
           <motion.div variants={itemVariants} className="relative">
             <div className="aspect-square overflow-hidden rounded-2xl bg-gradient-to-br from-purple-50 to-cyan-50 p-2 shadow-xl dark:from-purple-900/20 dark:to-cyan-900/20">
               <div className="h-full w-full overflow-hidden rounded-xl">
-                <img
-                  src="/placeholder.svg?height=600&width=600"
+                <Image
+                  height={0}
+                  width={0}
+                  src={creatorImg}
                   alt="Harun Al Rosyid"
                   className="h-full w-full object-cover"
                 />
@@ -112,10 +119,19 @@ export default function CreatorSection() {
             <div className="absolute -bottom-6 -right-6 h-40 w-40 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 opacity-20 blur-3xl"></div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex flex-col justify-center">
-            <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">{t("creator.role")}</h3>
-            <p className="mb-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">{t("creator.bio1")}</p>
-            <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">{t("creator.bio2")}</p>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col justify-center"
+          >
+            <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+              {t("creator.role")}
+            </h3>
+            <p className="mb-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              {t("creator.bio1")}
+            </p>
+            <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              {t("creator.bio2")}
+            </p>
 
             <div className="space-y-4">
               {achievements.map((achievement, index) => (
@@ -123,10 +139,16 @@ export default function CreatorSection() {
                   key={index}
                   className="flex items-start rounded-lg border border-gray-200 bg-white/50 p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900/50"
                 >
-                  <div className="mr-4 rounded-full bg-gray-100 p-2 dark:bg-gray-800">{achievement.icon}</div>
+                  <div className="mr-4 rounded-full bg-gray-100 p-2 dark:bg-gray-800">
+                    {achievement.icon}
+                  </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">{achievement.title}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{achievement.description}</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white">
+                      {achievement.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {achievement.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -136,9 +158,9 @@ export default function CreatorSection() {
               <Button
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white hover:opacity-90"
                 onClick={() => {
-                  const contactSection = document.getElementById("contact")
+                  const contactSection = document.getElementById("contact");
                   if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" })
+                    contactSection.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
               >
@@ -149,5 +171,5 @@ export default function CreatorSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

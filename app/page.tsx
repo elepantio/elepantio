@@ -35,14 +35,14 @@ export default function Home() {
 
       <main className="relative">
         <HeroSection opacity={opacity} scale={scale} />
-        <CollaborationSection />
-        <ProjectsSection />
+        {/* <CollaborationSection /> */}
+        {/* <ProjectsSection /> */}
         <PortfolioCarousel />
         {/* <TechStackMarquee />
         <ClientShowcase /> */}
         <FeatureSection />
         <ServicesOfferingSection />
-        <CreatorSection />
+        {/* <CreatorSection /> */}
         <ProcessSection />
         <EducationSection />
         <ContactSection />

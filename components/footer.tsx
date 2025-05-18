@@ -52,7 +52,7 @@ export default function Footer() {
               className="mb-4 text-2xl font-bold"
             >
               <span className="bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-                Elephantio
+                Elepantio
               </span>
             </motion.div>
             <motion.p
@@ -167,7 +167,7 @@ export default function Footer() {
             className="flex flex-col items-start text-sm"
           >
             <span className="text-gray-500">
-              © {currentYear} Elephantio. {t("footer.rights")}
+              © {currentYear} Elepantio. {t("footer.rights")}
             </span>
             <Tooltip content="Look at the hero section subtitle carefully!">
               <span className="mt-1 text-xs italic text-gray-400 hover:text-purple-500 transition-colors duration-300 cursor-default">
@@ -188,22 +188,6 @@ export default function Footer() {
               {t("footer.madeWith")}{" "}
               <span className="mx-1 text-red-500">❤</span> {t("footer.in")}
             </span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full border-purple-500/20 bg-white/50 text-gray-700 hover:bg-purple-500/10 dark:bg-black/50 dark:text-white dark:hover:bg-purple-500/10"
-              onClick={scrollToTop}
-            >
-              <ArrowUp className="h-5 w-5" />
-            </Button>
           </motion.div>
         </div>
       </div>

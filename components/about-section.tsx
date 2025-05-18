@@ -73,7 +73,7 @@ export default function AboutSection() {
                 <p className="text-sm text-gray-600">Years Experience</p>
               </div>
               <div className="rounded-xl bg-gray-50 p-4 shadow-sm">
-                <h3 className="text-3xl font-bold text-gray-900">50+</h3>
+                {/* <h3 className="text-3xl font-bold text-gray-900">12+</h3> */}
                 <p className="text-sm text-gray-600">Projects Completed</p>
               </div>
             </div>

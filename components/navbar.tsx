@@ -28,13 +28,13 @@ export default function Navbar() {
 
   const navItems = [
     { name: t("nav.home"), id: "hero" },
-    { name: t("nav.about"), id: "collaboration" },
+    // { name: t("nav.about"), id: "collaboration" },
     { name: t("nav.projects"), id: "projects" },
     { name: t("nav.skills"), id: "features" },
     // { name: t("nav.techStack"), id: "tech-stack" },
     // { name: t("nav.clients"), id: "clients" },
     { name: t("nav.services"), id: "services-offering" },
-    { name: t("nav.creator"), id: "creator" },
+    // { name: t("nav.creator"), id: "creator" },
     { name: t("nav.experience"), id: "process" },
     { name: t("nav.contact"), id: "contact" },
   ]
@@ -55,7 +55,7 @@ export default function Navbar() {
             className="text-xl font-bold"
           >
             <span className="bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-              Elephantio
+              Elepantio
             </span>
           </motion.div>
 
@@ -73,7 +73,7 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <div className="flex items-center space-x-4">
-                <LanguageToggle />
+                {/* <LanguageToggle /> */}
                 <ThemeToggle />
               </div>
             </nav>

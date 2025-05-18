@@ -1,31 +1,40 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { cn } from "@/lib/utils"
-import { useLanguage } from "@/contexts/language-context"
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/language-context";
+import Link from "next/link";
 
 interface Project {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  image: string
-  tech: string
-  link?: string
-  github?: string
-  gradient: string
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  tech: string;
+  link?: string;
+  path?: string;
+  github?: string;
+  gradient: string;
+  key: Array<string>;
 }
 
 export default function PortfolioCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [isOpen, setIsOpen] = useState(false)
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const { t } = useLanguage()
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   const projects: Project[] = [
     {
@@ -38,6 +47,20 @@ export default function PortfolioCarousel() {
       tech: "TypeScript, React Native, Redux, Firebase, Kotlin (Native Module)",
       link: "https://play.google.com/store/apps/details?id=com.senyum&hl=id",
       gradient: "from-purple-600 to-blue-600",
+      key: [],
+      path: "/project/senyum-mobile",
+    },
+     {
+      id: "senyum-mobile-seller",
+      title: "Senyum Mobile Seller",
+      subtitle: "Microsite Web Application",
+      description:
+        "A web-based cross-selling service for PNM, Pengadaian and BRI products used by BRILink marketing agents to help promote and manage financial products and services offered through the Senyum platform",
+      image: "/placeholder.svg?height=600&width=800",
+      tech: "TypeScript, React.js, Redux Toolkit, Tailwind, SWR, React UseForm, Custome Hooks.",
+      gradient: "from-purple-600 to-blue-600",
+      key: [],
+      path: "/project/senyum-mobile",
     },
     {
       id: "senyum-dashboard",
@@ -48,6 +71,8 @@ export default function PortfolioCarousel() {
       image: "/placeholder.svg?height=600&width=800",
       tech: "TypeScript, React.js, Next.js, Redux Toolkit, Tailwind",
       gradient: "from-blue-600 to-cyan-600",
+      key: [],
+      path: "/project/senyum-dashboard",
     },
     {
       id: "grorex",
@@ -58,6 +83,8 @@ export default function PortfolioCarousel() {
       image: "/placeholder.svg?height=600&width=800",
       tech: "React.js, JavaScript, Redux Toolkit, Ant Design, Axios",
       gradient: "from-cyan-600 to-blue-600",
+      key: [],
+      path: "/project/grorex",
     },
     {
       id: "nex-drive",
@@ -68,6 +95,8 @@ export default function PortfolioCarousel() {
       image: "/placeholder.svg?height=600&width=800",
       tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI",
       gradient: "from-blue-600 to-purple-600",
+      key: [],
+      path: "/project/nex-drive",
     },
     {
       id: "nex-component",
@@ -78,6 +107,8 @@ export default function PortfolioCarousel() {
       image: "/placeholder.svg?height=600&width=800",
       tech: "React.js, JavaScript, Bitbucket, NPM",
       gradient: "from-purple-600 to-pink-600",
+      key: [],
+      path: "/project/nex-component-ui",
     },
     {
       id: "nex-hub",
@@ -88,6 +119,8 @@ export default function PortfolioCarousel() {
       image: "/placeholder.svg?height=600&width=800",
       tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI",
       gradient: "from-pink-600 to-red-600",
+      key: [],
+      path: "/project/nex-hub",
     },
     {
       id: "recruitment-hub",
@@ -99,42 +132,62 @@ export default function PortfolioCarousel() {
       tech: "WordPress, PHP, MySQL, JavaScript, CSS",
       link: "https://www.recruitmenthubasia.com",
       gradient: "from-red-600 to-orange-600",
+      key: [],
+      path: "/project/recruitment-hub-asia",
     },
-  ]
+     {
+      id: "customization-engine-server",
+      title: "Customization Engine Server",
+      subtitle: "Company Profile and Job Portal",
+      description:
+        "A customized Apache server setup capable of running multiple PHP versions concurrently to support legacy and modern systems.",
+      image: "/placeholder.svg?height=600&width=800",
+      tech: "PHP, Apache",
+      link: "https://github.com/jeevva/httpd-customize-multi-php",
+      gradient: "from-red-600 to-orange-600",
+      key: [],
+      path: "/project/customization-engine-server",
+    },
+  ];
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length)
-  }
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length)
-  }
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + projects.length) % projects.length
+    );
+  };
 
   const openProjectDetails = (project: Project) => {
-    setSelectedProject(project)
-    setIsOpen(true)
-  }
+    setSelectedProject(project);
+    setIsOpen(true);
+  };
 
   // Auto-scroll effect
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide()
-    }, 5000)
+      nextSlide();
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [currentIndex])
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   // Calculate visible projects (current, previous, next)
   const visibleProjects = () => {
-    const prev = (currentIndex - 1 + projects.length) % projects.length
-    const next = (currentIndex + 1) % projects.length
-    return [prev, currentIndex, next]
-  }
+    const prev = (currentIndex - 1 + projects.length) % projects.length;
+    const next = (currentIndex + 1) % projects.length;
+    return [prev, currentIndex, next];
+  };
 
-  const [prevIndex, currIndex, nextIndex] = visibleProjects()
+  const [prevIndex, currIndex, nextIndex] = visibleProjects();
 
   return (
-    <section id="portfolio-carousel" className="relative overflow-hidden bg-white py-24 dark:bg-black sm:py-32">
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-white py-24 dark:bg-black sm:py-32"
+    >
       <div className="absolute top-0 right-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[100px]"></div>
       <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-purple-600/10 blur-[100px]"></div>
 
@@ -159,12 +212,15 @@ export default function PortfolioCarousel() {
               .split(" ")
               .map((word, i, arr) =>
                 i === arr.length - 1 ? (
-                  <span key={i} className="bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent">
+                  <span
+                    key={i}
+                    className="bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent"
+                  >
                     {word}{" "}
                   </span>
                 ) : (
                   <span key={i}>{word} </span>
-                ),
+                )
               )}
           </motion.h2>
           <motion.p
@@ -201,7 +257,10 @@ export default function PortfolioCarousel() {
           </div>
 
           {/* Carousel container */}
-          <div ref={carouselRef} className="relative mx-auto h-[500px] max-w-5xl overflow-hidden">
+          <div
+            ref={carouselRef}
+            className="relative mx-auto h-[500px] max-w-5xl overflow-hidden"
+          >
             <div className="absolute inset-0 flex items-center justify-center">
               {projects.map((project, index) => (
                 <motion.div
@@ -214,18 +273,18 @@ export default function PortfolioCarousel() {
                       index === prevIndex
                         ? "-60%"
                         : index === nextIndex
-                          ? "60%"
-                          : index === currentIndex
-                            ? "0%"
-                            : "100%",
+                        ? "60%"
+                        : index === currentIndex
+                        ? "0%"
+                        : "100%",
                     zIndex: index === currentIndex ? 10 : 0,
                   }}
                   transition={{ duration: 0.5 }}
                   className={cn(
-                    "absolute h-full w-full cursor-pointer rounded-2xl bg-white p-6 shadow-xl dark:bg-gray-900/80",
-                    index === currentIndex ? "opacity-100" : "opacity-50",
+                    "absolute h-full w-3/4 cursor-pointer rounded-2xl bg-white p-6 shadow-xl dark:bg-gray-900/80",
+                    index === currentIndex ? "opacity-100" : "opacity-50"
                   )}
-                  onClick={() => index === currentIndex && openProjectDetails(project)}
+                 
                 >
                   <div className="flex h-full flex-col">
                     <div className="relative mb-4 h-[250px] overflow-hidden rounded-xl">
@@ -238,18 +297,28 @@ export default function PortfolioCarousel() {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <h3 className="mb-1 text-2xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-                    <p className="mb-2 text-sm font-medium text-purple-600 dark:text-purple-400">{project.subtitle}</p>
-                    <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
+                    <h3 className="mb-1 text-2xl font-bold text-gray-900 dark:text-white">
+                      {project.title}
+                    </h3>
+                    <p className="mb-2 text-sm font-medium text-purple-600 dark:text-purple-400">
+                      {project.subtitle}
+                    </p>
+                    <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
+                      {project.description}
+                    </p>
                     <div className="mt-auto">
                       <div className="rounded-lg bg-gray-100 p-2 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                         Tech: {project.tech}
                       </div>
-                      {index === currentIndex && (
-                        <div className="mt-4 text-center">
-                          <span className="text-sm text-purple-600 dark:text-purple-400">Click to view details</span>
-                        </div>
-                      )}
+                      {/* {index === currentIndex && (
+                        <Link href={project.path ?? ""}>
+                          <div className="mt-4 text-center">
+                            <span className="text-sm text-purple-600 dark:text-purple-400">
+                              Click to view details
+                            </span>
+                          </div>
+                        </Link>
+                      )} */}
                     </div>
                   </div>
                 </motion.div>
@@ -263,7 +332,9 @@ export default function PortfolioCarousel() {
               <button
                 key={index}
                 className={`h-2 w-2 rounded-full ${
-                  index === currentIndex ? "bg-purple-600" : "bg-gray-300 dark:bg-gray-700"
+                  index === currentIndex
+                    ? "bg-purple-600"
+                    : "bg-gray-300 dark:bg-gray-700"
                 }`}
                 onClick={() => setCurrentIndex(index)}
               />
@@ -277,14 +348,18 @@ export default function PortfolioCarousel() {
         <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto bg-white p-0 dark:bg-gray-900">
           {selectedProject && (
             <div>
-              <div className={`relative h-[200px] w-full overflow-hidden bg-gradient-to-r ${selectedProject.gradient}`}>
+              <div
+                className={`relative h-[200px] w-full overflow-hidden bg-gradient-to-r ${selectedProject.gradient}`}
+              >
                 <img
                   src={selectedProject.image || "/placeholder.svg"}
                   alt={selectedProject.title}
                   className="h-full w-full object-cover opacity-50"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <h2 className="text-3xl font-bold text-white">{selectedProject.title}</h2>
+                  <h2 className="text-3xl font-bold text-white">
+                    {selectedProject.title}
+                  </h2>
                 </div>
               </div>
               <div className="p-6">
@@ -298,11 +373,17 @@ export default function PortfolioCarousel() {
                 </DialogHeader>
                 <div className="mt-4 space-y-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Project Overview</h3>
-                    <p className="mt-2 text-gray-700 dark:text-gray-300">{selectedProject.description}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      Project Overview
+                    </h3>
+                    <p className="mt-2 text-gray-700 dark:text-gray-300">
+                      {selectedProject.description}
+                    </p>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Technology Stack</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      Technology Stack
+                    </h3>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {selectedProject.tech.split(", ").map((tech, index) => (
                         <span
@@ -315,12 +396,14 @@ export default function PortfolioCarousel() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Key Features</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      Key Features
+                    </h3>
                     <ul className="mt-2 list-inside list-disc space-y-1 text-gray-700 dark:text-gray-300">
                       <li>Responsive design for all device sizes</li>
                       <li>Intuitive user interface with modern aesthetics</li>
                       <li>Optimized performance and loading times</li>
-                      <li>Secure authentication and data handling</li>
+                      <li>Secure authenbatication and data handling</li>
                       <li>Comprehensive error handling and user feedback</li>
                     </ul>
                   </div>
@@ -331,7 +414,10 @@ export default function PortfolioCarousel() {
                       </Button>
                     )}
                     {selectedProject.github && (
-                      <Button variant="outline" className="border-purple-500/50">
+                      <Button
+                        variant="outline"
+                        className="border-purple-500/50"
+                      >
                         <Github className="mr-2 h-4 w-4" /> View Code
                       </Button>
                     )}
@@ -343,5 +429,5 @@ export default function PortfolioCarousel() {
         </DialogContent>
       </Dialog>
     </section>
-  )
+  );
 }

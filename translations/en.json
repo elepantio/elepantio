@@ -12,7 +12,7 @@
   "nav.clients": "Clients",
 
   "hero.title": "Welcome to",
-  "hero.name": "Elephantio",
+  "hero.name": "Elepantio",
   "hero.subtitle": "This is a Web Development showcase built by Harun Al Rosyid. Featuring responsive, scalable web and mobile applications using React, React Native, and modern frontend tools.",
   "hero.explore": "Explore My Work",
   "hero.contact": "Get in Touch",
@@ -30,13 +30,13 @@
 
   "creator.title": "The Creator",
   "creator.heading": "Meet Harun Al Rosyid",
-  "creator.subtitle": "The passionate developer behind Elephantio",
+  "creator.subtitle": "The passionate developer behind Elepantio",
   "creator.role": "Full-Stack Developer & UI/UX Enthusiast",
   "creator.bio1": "Harun Al Rosyid is a seasoned developer with over 5 years of experience in creating beautiful, functional web and mobile applications. With a passion for clean code and intuitive user experiences, Harun brings ideas to life through thoughtful design and robust implementation.",
-  "creator.bio2": "Specializing in React, React Native, and modern JavaScript frameworks, Harun has worked across various industries including finance, e-commerce, and enterprise solutions. Elephantio represents his vision of creating showcase projects that demonstrate the possibilities of modern web development.",
+  "creator.bio2": "Specializing in React, React Native, and modern JavaScript frameworks, Harun has worked across various industries including finance, e-commerce, and enterprise solutions. Elepantio represents his vision of creating showcase projects that demonstrate the possibilities of modern web development.",
   "creator.achievement1.title": "5+ Years Experience",
   "creator.achievement1.desc": "In web and mobile development across multiple industries",
-  "creator.achievement2.title": "50+ Projects Completed",
+  "creator.achievement2.title": "12+ Projects Completed",
   "creator.achievement2.desc": "From small business websites to enterprise applications",
   "creator.achievement3.title": "Team Leadership",
   "creator.achievement3.desc": "Successfully led development teams on multiple projects",
@@ -51,7 +51,7 @@
   "services.web.description": "Custom web applications built with modern JavaScript frameworks, focusing on performance, responsiveness, and user experience.",
 
   "services.mobile.title": "Mobile Development",
-  "services.mobile.description": "Native-like mobile applications for iOS and Android using React Native, with seamless integration of device features.",
+  "services.mobile.description": "Native-like mobile applications Android using React Native, with seamless integration of device features.",
 
   "services.fullstack.title": "Full-Stack Solutions",
   "services.fullstack.description": "End-to-end development from database design to frontend implementation, creating cohesive and scalable applications.",
@@ -71,6 +71,8 @@
   "services.collaboration.employee.title": "Full-Time Role",
   "services.collaboration.employee.description": "Complete integration with your team as an employee for long-term projects and continuous development.",
 
+  "services.collaboration.freelance.custom.title": "Freelance",
+  "services.collaboration.freelance.custom.description": "Flexible hourly or daily rates for short-term tasks and specialized work with minimal commitment",
   "services.approach.heading": "My Approach to Technology",
   "services.approach.description": "I believe in using the right tool for the job, with JavaScript as my primary ecosystem. I continuously learn and adapt to new technologies, ensuring your project benefits from modern best practices while maintaining stability and performance.",
 

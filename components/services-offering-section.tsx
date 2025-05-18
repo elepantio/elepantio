@@ -1,15 +1,25 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { Code, Smartphone, Zap, Users, Rocket, Layers, Workflow, GitBranch } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  Code,
+  Smartphone,
+  Zap,
+  Users,
+  Rocket,
+  Layers,
+  Workflow,
+  GitBranch,
+  Clock,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function ServicesOfferingSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
-  const { t } = useLanguage()
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const { t } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,7 +29,7 @@ export default function ServicesOfferingSection() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -28,7 +38,7 @@ export default function ServicesOfferingSection() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   const services = [
     {
@@ -36,21 +46,41 @@ export default function ServicesOfferingSection() {
       description: t("services.web.description"),
       icon: <Code className="h-10 w-10" />,
       color: "from-blue-500 to-blue-600",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+      technologies: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Ant Design",
+        "Node.js",
+        "Custome Hooks",
+        "SWR",
+      ],
     },
     {
       title: t("services.mobile.title"),
       description: t("services.mobile.description"),
       icon: <Smartphone className="h-10 w-10" />,
       color: "from-purple-500 to-purple-600",
-      technologies: ["React Native", "Expo", "Redux", "Native Modules", "Firebase"],
+      technologies: [
+        "React Native",
+        "Redux",
+        "Native Modules",
+        "Firebase",
+      ],
     },
     {
       title: t("services.fullstack.title"),
       description: t("services.fullstack.description"),
       icon: <Layers className="h-10 w-10" />,
       color: "from-cyan-500 to-cyan-600",
-      technologies: ["Express.js", "MongoDB", "PostgreSQL", "REST APIs", "GraphQL"],
+      technologies: [
+        "Express.js",
+        "MongoDB",
+        "PostgreSQL",
+        "MySQL",
+        "REST APIs",
+      ],
     },
     {
       title: t("services.consulting.title"),
@@ -60,12 +90,11 @@ export default function ServicesOfferingSection() {
       technologies: [
         "Code Reviews",
         "Architecture Design",
-        "Team Training",
         "Best Practices",
         "Performance Optimization",
       ],
     },
-  ]
+  ];
 
   const collaborationTypes = [
     {
@@ -86,15 +115,24 @@ export default function ServicesOfferingSection() {
       icon: <Workflow className="h-6 w-6" />,
       color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
     },
-  ]
+     {
+      title: t("services.collaboration.freelance.custom.title"),
+      description: t("services.collaboration.freelance.custom.description"),
+      icon: <Clock className="h-6 w-6" />,
+      color: "bg-green-500/10 text-green-600 dark:text-green-400",
+    },
+  ];
 
   return (
-    <section id="services-offering" className="relative overflow-hidden bg-gray-50 py-24 dark:bg-gray-900 sm:py-32">
+    <section
+      id="services-offering"
+      className="relative overflow-hidden bg-gray-50 py-24 dark:bg-gray-900 sm:py-32"
+    >
       <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-blue-100 opacity-30 blur-3xl dark:bg-blue-900/30"></div>
       <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-purple-100 opacity-30 blur-3xl dark:bg-purple-900/30"></div>
 
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="container mx-auto px-2">
+        <div className="mx-auto max-w-xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,12 +152,15 @@ export default function ServicesOfferingSection() {
               .split(" ")
               .map((word, i, arr) =>
                 i === arr.length - 1 ? (
-                  <span key={i} className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                  <span
+                    key={i}
+                    className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
+                  >
                     {word}{" "}
                   </span>
                 ) : (
                   <span key={i}>{word} </span>
-                ),
+                )
               )}
           </motion.h2>
           <motion.p
@@ -146,11 +187,17 @@ export default function ServicesOfferingSection() {
               className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800"
             >
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gray-50 opacity-80 dark:bg-gray-700/50"></div>
-              <div className={`relative mb-6 inline-flex rounded-xl bg-gradient-to-r ${service.color} p-3 text-white`}>
+              <div
+                className={`relative mb-6 inline-flex rounded-xl bg-gradient-to-r ${service.color} p-3 text-white`}
+              >
                 {service.icon}
               </div>
-              <h3 className="relative mb-4 text-xl font-bold text-gray-900 dark:text-white">{service.title}</h3>
-              <p className="relative mb-6 text-gray-600 dark:text-gray-400">{service.description}</p>
+              <h3 className="relative mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                {service.title}
+              </h3>
+              <p className="relative mb-6 text-gray-600 dark:text-gray-400">
+                {service.description}
+              </p>
               <div className="relative flex flex-wrap gap-2">
                 {service.technologies.map((tech, i) => (
                   <span
@@ -169,22 +216,32 @@ export default function ServicesOfferingSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mx-auto mt-20 max-w-4xl rounded-2xl bg-white p-8 shadow-lg dark:bg-gray-800"
+          className="mx-auto mt-20 max-w-6xl rounded-2xl bg-white p-8 shadow-lg dark:bg-gray-800"
         >
           <h3 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
             {t("services.collaboration.heading")}
           </h3>
-          <p className="mb-8 text-center text-gray-700 dark:text-gray-300">{t("services.collaboration.subtitle")}</p>
+          <p className="mb-8 text-center text-gray-700 dark:text-gray-300">
+            {t("services.collaboration.subtitle")}
+          </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-4">
             {collaborationTypes.map((type, index) => (
               <div
                 key={index}
                 className="rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-900/50"
               >
-                <div className={`mb-4 inline-flex rounded-full ${type.color} p-3`}>{type.icon}</div>
-                <h4 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">{type.title}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{type.description}</p>
+                <div
+                  className={`mb-4 inline-flex rounded-full ${type.color} p-3`}
+                >
+                  {type.icon}
+                </div>
+                <h4 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+                  {type.title}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {type.description}
+                </p>
               </div>
             ))}
           </div>
@@ -193,9 +250,9 @@ export default function ServicesOfferingSection() {
             <Button
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"
               onClick={() => {
-                const contactSection = document.getElementById("contact")
+                const contactSection = document.getElementById("contact");
                 if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" })
+                  contactSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
             >
@@ -210,10 +267,14 @@ export default function ServicesOfferingSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mx-auto mt-16 max-w-3xl text-center"
         >
-          <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">{t("services.approach.heading")}</h3>
-          <p className="text-lg text-gray-700 dark:text-gray-300">{t("services.approach.description")}</p>
+          <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            {t("services.approach.heading")}
+          </h3>
+          <p className="text-lg text-gray-700 dark:text-gray-300">
+            {t("services.approach.description")}
+          </p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

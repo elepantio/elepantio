@@ -80,6 +80,51 @@ export default function ProjectDetails() {
         ],
         gradient: "from-purple-600 to-blue-600",
       },
+       "grorex-dashboard": {
+        id: "senyum-mobile",
+        title: "Senyum Mobile",
+        subtitle: "Self Service Mobile Application",
+        description:
+          "A mobile application designed for ultra-micro customers (UMi) to independently access digital financial services.",
+        fullDescription:
+          "Senyum Mobile is a comprehensive mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support. The app serves as a central hub for BRI's digital financial ecosystem, providing users with a seamless and intuitive interface to manage their financial needs.",
+        image: "/placeholder.svg?height=600&width=800",
+        tech: [
+          "TypeScript",
+          "React Native",
+          "Redux",
+          "Firebase",
+          "Kotlin (Native Module)",
+          "Notifee",
+          "SWR",
+          "React UseForm",
+          "Custom Hooks",
+        ],
+        link: "https://play.google.com/store/apps/details?id=com.senyum&hl=id",
+        date: "January 2024 - Present",
+        category: "Mobile Application",
+        features: [
+          "Transaction History for SimpedesUMi accounts",
+          "Location services for nearby BRILink Agents and BRI ATMs",
+          "LinkUMKM integration for SME-related services",
+          "Push notification system using Firebase Cloud Messaging",
+          "Customer complaint handling with ticket tracking",
+          "Secure authentication and account management",
+        ],
+        challenges: [
+          "Integrating multiple backend services from different BRI divisions",
+          "Ensuring consistent performance across various Android devices",
+          "Implementing secure authentication while maintaining user experience",
+          "Optimizing app size and performance for users with limited data plans",
+        ],
+        solutions: [
+          "Developed a modular architecture to handle different service integrations",
+          "Implemented extensive device testing and responsive design principles",
+          "Created a streamlined authentication flow with secure token management",
+          "Optimized assets and implemented code splitting to reduce app size",
+        ],
+        gradient: "from-purple-600 to-blue-600",
+      },
       // Add more projects as needed
     }
 
@@ -147,7 +192,7 @@ export default function ProjectDetails() {
           variant="ghost"
           className="mb-8 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
         >
-          <ArrowLeft className="mr-2 h-4 w-4" /> Back to Portfolio
+          <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
         </Button>
 
         {/* Project Content */}
