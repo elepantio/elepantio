@@ -27,16 +27,16 @@ export default function Navbar() {
   }
 
   const navItems = [
-    { name: t("nav.home"), id: "hero" },
+    { name: "Home", id: "hero" },
     // { name: t("nav.about"), id: "collaboration" },
-    { name: t("nav.projects"), id: "projects" },
-    { name: t("nav.skills"), id: "features" },
+    { name: "Projects", id: "projects" },
+    { name: "Skill", id: "features" },
     // { name: t("nav.techStack"), id: "tech-stack" },
     // { name: t("nav.clients"), id: "clients" },
-    { name: t("nav.services"), id: "services-offering" },
+    { name: "Services", id: "services-offering" },
     // { name: t("nav.creator"), id: "creator" },
-    { name: t("nav.experience"), id: "process" },
-    { name: t("nav.contact"), id: "contact" },
+    { name:"Experiences", id: "process" },
+    { name: "Contact", id: "contact" },
   ]
 
   return (
