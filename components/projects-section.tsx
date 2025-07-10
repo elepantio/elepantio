@@ -36,7 +36,7 @@ export default function ProjectsSection() {
     {
       title: "Senyum Mobile",
       subtitle: "Self Service Mobile Application",
-      link: "/projects/senyum-mobile",
+      link: "/project/senyum-mobile",
       description:
         "A mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support.",
       image: "/placeholder.svg?height=600&width=800",

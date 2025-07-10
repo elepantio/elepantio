@@ -19,8 +19,11 @@ interface Project {
   id: string;
   title: string;
   subtitle: string;
+  impact?: string;
+  company?: string;
+  duration?: string;
   description: string;
-  image: string;
+  image?: string;
   tech: string;
   link?: string;
   path?: string;
@@ -40,113 +43,170 @@ export default function PortfolioCarousel() {
     {
       id: "senyum-mobile",
       title: "Senyum Mobile",
-      subtitle: "Self Service Mobile Application",
+      subtitle: "Self Service - Mobile Application",
+      company: "PT Bank Rakyat Indonesia (BRI)",
+      duration: "Jan 2024 - Present",
+      link: "https://play.google.com/store/apps/details?id=com.senyum&hl=id",
       description:
         "A mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "TypeScript, React Native, Redux, Firebase, Kotlin (Native Module)",
-      link: "https://play.google.com/store/apps/details?id=com.senyum&hl=id",
-      gradient: "from-purple-600 to-blue-600",
-      key: [],
-      path: "/project/senyum-mobile",
+      tech: "TypeScript, React Native, Redux, Firebase, Kotlin (Native Module), Notifee, SWR, React UseForm, Custom Hooks.",
+      key: [
+        "Developed features for Transaction History SimpedesUMi.",
+        "Integrated location merchant services (BRILink Agents and BRI ATMs).",
+        "Implemented LinkUMKM integration for SME content.",
+        "Built push notification handling with FCM.",
+        "Developed customer complaint handling and ticket tracking features.",
+      ],
+      impact:
+        "Enhanced user convenience through self-service access, location merchant BRILink agents, BRI ATMs, and improved support response flow—contributing to increased user satisfaction and operational efficiency",
+      gradient: "from-purple-600 to-pink-600",
     },
-     {
-      id: "senyum-mobile-seller",
-      title: "Senyum Mobile Seller",
-      subtitle: "Microsite Web Application",
+    {
+      id: "senyum-mobile-tenaga-pemasar",
+      title: "Senyum Mobile",
+      subtitle: "Tenaga Pemasar - Web Application",
+      company: "PT Bank Rakyat Indonesia (BRI)",
+      duration: "Jan 2024 - Present",
       description:
-        "A web-based cross-selling service for PNM, Pengadaian and BRI products used by BRILink marketing agents to help promote and manage financial products and services offered through the Senyum platform",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "TypeScript, React.js, Redux Toolkit, Tailwind, SWR, React UseForm, Custome Hooks.",
-      gradient: "from-purple-600 to-blue-600",
-      key: [],
-      path: "/project/senyum-mobile",
+        "A web-based cross-selling service for PNM, Pengadaian and BRI products used by BRILink marketing agents to help promote and manage financial products and services offered through the Senyum platform.",
+      tech: "TypeScript, React.js, Redux Toolkit, Tailwind, SWR, React UseForm, Custom Hooks.",
+      key: [
+        "Refactored legacy code using feature-based architecture.",
+        "Developed key features including : ",
+        "Gold instalment transactions, integrated with Pegadaian services.",
+        "QRIS merchant registration, integrated with BRI’s merchant onboarding service.",
+        "Product Summary (RIPLAY), a feature that helps agents clearly present and explain available financial products to potential customers.",
+      ],
+      impact:
+        "Empowered BRILink agents to effectively offer new services from Pegadaian and BRI, while improving overall product understanding and sales conversion through structured product summaries.",
+      gradient: "from-red-600 to-orange-600",
     },
     {
       id: "senyum-dashboard",
       title: "Senyum Dashboard",
-      subtitle: "Admin Web Application",
+      subtitle: "Web Admin Panel",
+      company: "PT Bank Rakyat Indonesia (BRI)",
+      duration: "Jan 2024 - Present",
       description:
-        "A web-based admin panel designed to manage operational workflows for the Senyum platform, enabling backend processes such as unit pairing, identity validation, and customer data management.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "TypeScript, React.js, Next.js, Redux Toolkit, Tailwind",
-      gradient: "from-blue-600 to-cyan-600",
-      key: [],
-      path: "/project/senyum-dashboard",
-    },
-    {
-      id: "grorex",
-      title: "Grorex Dashboard",
-      subtitle: "B2B Lending Service Admin",
-      description:
-        "An internal web application for managing a B2B lending service, providing tools for customer data administration, user access control, and loan processing workflows.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "React.js, JavaScript, Redux Toolkit, Ant Design, Axios",
-      gradient: "from-cyan-600 to-blue-600",
-      key: [],
-      path: "/project/grorex",
-    },
-    {
-      id: "nex-drive",
-      title: "Nex Drive",
-      subtitle: "Online Storage Services",
-      description:
-        "A web-based online storage platform similar to Google Drive or OneDrive, tailored for enterprise service from Nexsoft with core file operations and sharing capabilities.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI",
+        "A web-based admin panel designed to manage operational workflows for the Senyum platform, enabling backend processes such as unit pairing, identity validation, and customer data management across BRI, PNM, and Pegadaian.",
+      tech: "TypeScript, React.js, Next.js, Redux Toolkit, Tailwind, SWR, React UseForm, Custom Hooks.",
+      key: [
+        "Developed unit pairing functionality between BRI branches and PNM/Pegadaian merchant units to support accurate data mapping.",
+        "Built a manual identity verification system for handling KTP and selfie validation when automatic KYC fails.",
+        "Implemented admin tools for updating customer data in response to complaints or change requests.",
+      ],
+      impact:
+        "Empowered BRILink agents to effectively offer new services from Pegadaian and BRI, while improving overall product understanding and sales conversion through structured product summaries.",
       gradient: "from-blue-600 to-purple-600",
-      key: [],
-      path: "/project/nex-drive",
     },
     {
-      id: "nex-component",
+      id: "grorex-dashboard-admin",
+      title: "Grorex",
+      subtitle: "Dashboard Admin",
+      company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
+      duration: "Mar 2023 - Des 2023",
+      description:
+        "An internal web application for managing a B2B lending service, providing tools for customer data administration, user access control, and loan processing workflows",
+      tech: "React.js, JavaScript, Redux Toolkit, Ant Design, Axios.",
+      key: [
+        "•	Developed dashboard features for customer data mapping, role-based access control, and customer whitelist management.",
+        "•	Improved UI consistency using Ant Design and custom layout components.",
+        "•	Collaborated with backend developers to ensure secure data flow and accurate role handling.",
+      ],
+      impact:
+        "Enabled administrators to efficiently manage user access and streamline loan processing operations for B2B clients.",
+      gradient: "from-cyan-600 to-blue-600",
+    },
+    {
+      id: "nex-drive-online-storage-service",
+      title: "Nex Drive",
+      subtitle: "Online Storage Service",
+      company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
+      duration: "Aug 2022 - Mar 2023",
+      description:
+        "A web-based online storage platform similar to Google Drive or OneDrive, tailored for enterprise service from Nexsoft.",
+      tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI.",
+      key: [
+        "•	Build core file operations including file upload/download, folder creation, and file/folder sharing. ",
+        "•	Ensure a smooth user experience with efficient state management and responsive design. ",
+        "•	Integrated UI with backend APIs for secure and high-performance storage operations",
+      ],
+      gradient: "from-purple-600 to-blue-600",
+      impact:
+        "Provides a reliable and intuitive cloud storage interface for users to manage digital assets within a secure enterprise environment.",
+    },
+    {
+      id: "nex-component-ui",
       title: "Nex Component UI",
-      subtitle: "React Component Library",
+      subtitle: "Reusable UI Library",
+      company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
+      duration: "Jan 2022 - Aug 2022",
       description:
         "An internal React UI component library developed for use across multiple Nexsoft products to ensure design consistency and reusability.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "React.js, JavaScript, Bitbucket, NPM",
-      gradient: "from-purple-600 to-pink-600",
-      key: [],
-      path: "/project/nex-component-ui",
+      tech: "React.js, JavaScript, Bitbucket, NPM.",
+      key: [
+        "Initiated the project architecture from scratch, applying scalable design principles.",
+        "•	Designed and developed reusable UI components including forms, modals, tables, and inputs.",
+        "•	Published the package to a private Bitbucket-linked NPM registry for internal developer use.",
+      ],
+      gradient: "from-pink-600 to-red-600",
     },
     {
-      id: "nex-hub",
+      id: "nex-hub-mapping-data-resource",
       title: "Nex Hub",
       subtitle: "Mapping Data Resource",
+      company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
+      duration: "Jan 2022 - Aug 2022",
       description:
-        "A data mapping platform that centralizes customer, principal, and resource data for use across Nexsoft's suite of applications.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI",
-      gradient: "from-pink-600 to-red-600",
-      key: [],
-      path: "/project/nex-hub",
+        "A data mapping platform that centralizes customer, principal, and resource data for use across Nexsoft’s suite of applications.",
+      tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI.",
+      key: [
+        "•	Built UI interfaces for data source mapping, allowing flexible data relationships and resource tracking.",
+        "•	Integrated dynamic table views and data filters for large datasets.",
+        "•	Ensured maintainability by adhering to component-based architecture and UI consistency using NexComponent UI.",
+      ],
+      gradient: "from-blue-600 to-cyan-600",
+      impact:
+        "Improved data reliability and accessibility across Nexsoft applications through a structured, centralized data management interface.",
     },
+
     {
-      id: "recruitment-hub",
+      id: "recruitment-hub-asia",
       title: "Recruitment Hub Asia",
-      subtitle: "Company Profile and Job Portal",
+      subtitle: "Job Portal",
+      company: "OPUS IT Services Pte Ltd",
+      duration: "Jan 2021 - Mar 2021",
+      link: "https://www.recruitmenthubasia.com",
       description:
         "A company profile and job portal site built on WordPress with custom database triggers for job listing integration.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "WordPress, PHP, MySQL, JavaScript, CSS",
-      link: "https://www.recruitmenthubasia.com",
+      tech: "WordPress, PHP, MySQL, HTML, CSS, JavaScript.",
+      key: [
+        "•	Developed and deployed the website using WordPress and custom plugins.",
+        "•	Integrated external job listings from OPUS HRMS via stored procedures and database triggers.",
+        "•	Customized frontend components to display dynamic job listings from multiple sources.",
+      ],
       gradient: "from-red-600 to-orange-600",
-      key: [],
-      path: "/project/recruitment-hub-asia",
+      impact:
+        "Enabled seamless synchronization of job listings, improving candidate experience and reducing administrative overhead.",
     },
-     {
+    {
       id: "customization-engine-server",
-      title: "Customization Engine Server",
-      subtitle: "Company Profile and Job Portal",
+      title: "Customization Engine",
+      subtitle: "Multi-PHP Apache Server",
+      company: "OPUS IT Services Pte Ltd",
+      duration: "Feb 2021 - Mar 2021",
+      link: "https://github.com/jeevva/httpd-customize-multi-php",
       description:
         "A customized Apache server setup capable of running multiple PHP versions concurrently to support legacy and modern systems.",
-      image: "/placeholder.svg?height=600&width=800",
-      tech: "PHP, Apache",
-      link: "https://github.com/jeevva/httpd-customize-multi-php",
-      gradient: "from-red-600 to-orange-600",
-      key: [],
-      path: "/project/customization-engine-server",
+      tech: "",
+      key: [
+        "•	Researched and implemented a multi-PHP Apache environment suitable for varied web application requirements.",
+        "•	Deployed and configured the solution on OPUS servers for internal project use.",
+        "•	Documented the configuration process for future scalability. ",
+      ],
+      gradient: "from-pink-600 to-red-600",
+      impact:
+        "Improved system flexibility and backward compatibility for multiple PHP-based web applications.",
     },
   ];
 
@@ -284,9 +344,11 @@ export default function PortfolioCarousel() {
                     "absolute h-full w-3/4 cursor-pointer rounded-2xl bg-white p-6 shadow-xl dark:bg-gray-900/80",
                     index === currentIndex ? "opacity-100" : "opacity-50"
                   )}
-                 
                 >
-                  <div className="flex h-full flex-col">
+                  <div
+                    onClick={() => openProjectDetails(project)}
+                    className="flex h-full flex-col"
+                  >
                     <div className="relative mb-4 h-[250px] overflow-hidden rounded-xl">
                       <div
                         className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 blur-sm transition-all duration-500`}
@@ -310,15 +372,15 @@ export default function PortfolioCarousel() {
                       <div className="rounded-lg bg-gray-100 p-2 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                         Tech: {project.tech}
                       </div>
-                      {/* {index === currentIndex && (
-                        <Link href={project.path ?? ""}>
-                          <div className="mt-4 text-center">
-                            <span className="text-sm text-purple-600 dark:text-purple-400">
-                              Click to view details
-                            </span>
-                          </div>
-                        </Link>
-                      )} */}
+                      {index === currentIndex && (
+                        // <Link href={project.path ?? ""}>
+                        <div className="mt-4 text-center">
+                          <span className="text-sm text-purple-600 dark:text-purple-400">
+                            Click to view details
+                          </span>
+                        </div>
+                        // </Link>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -406,6 +468,15 @@ export default function PortfolioCarousel() {
                       <li>Secure authenbatication and data handling</li>
                       <li>Comprehensive error handling and user feedback</li>
                     </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      Impact
+                    </h3>
+                    <p className="mt-2 text-gray-700 dark:text-gray-300">
+                      {selectedProject.description}
+                    </p>
                   </div>
                   <div className="flex flex-wrap gap-4 pt-4">
                     {selectedProject.link && (

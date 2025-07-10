@@ -11,6 +11,7 @@ interface Project {
   title: string
   subtitle: string
   description: string
+  impact:string
   fullDescription: string
   image: string
   tech: string[]
@@ -44,6 +45,53 @@ export default function ProjectDetails() {
         fullDescription:
           "Senyum Mobile is a comprehensive mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support. The app serves as a central hub for BRI's digital financial ecosystem, providing users with a seamless and intuitive interface to manage their financial needs.",
         image: "/placeholder.svg?height=600&width=800",
+        impact:"Enhanced user convenience through self-service access, location merchant BRILink agents, BRI ATMs, and improved supportresponse flow—contributing to increased user satisfaction and operational efficiency.",
+        tech: [
+          "TypeScript",
+          "React Native",
+          "Redux",
+          "Firebase",
+          "Kotlin (Native Module)",
+          "Notifee",
+          "SWR",
+          "React UseForm",
+          "Custom Hooks",
+        ],
+        link: "https://play.google.com/store/apps/details?id=com.senyum&hl=id",
+        date: "January 2024 - Present",
+        category: "Mobile Application",
+        features: [
+          "Transaction History for SimpedesUMi accounts",
+          "Location services for nearby BRILink Agents and BRI ATMs",
+          "LinkUMKM integration for SME-related services",
+          "Push notification system using Firebase Cloud Messaging",
+          "Customer complaint handling with ticket tracking",
+          "Secure authentication and account management",
+        ],
+        challenges: [
+          "Integrating multiple backend services from different BRI divisions",
+          "Ensuring consistent performance across various Android devices",
+          "Implementing secure authentication while maintaining user experience",
+          "Optimizing app size and performance for users with limited data plans",
+        ],
+        solutions: [
+          "Developed a modular architecture to handle different service integrations",
+          "Implemented extensive device testing and responsive design principles",
+          "Created a streamlined authentication flow with secure token management",
+          "Optimized assets and implemented code splitting to reduce app size",
+        ],
+        gradient: "from-purple-600 to-blue-600",
+      },
+       "senyum-mobile-seller": {
+        id: "senyum-mobile",
+        title: "Senyum Mobile",
+        subtitle: "Self Service Mobile Application",
+        description:
+          "A mobile application designed for ultra-micro customers (UMi) to independently access digital financial services.",
+        fullDescription:
+          "Senyum Mobile is a comprehensive mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support. The app serves as a central hub for BRI's digital financial ecosystem, providing users with a seamless and intuitive interface to manage their financial needs.",
+        image: "/placeholder.svg?height=600&width=800",
+        impact:"Enhanced user convenience through self-service access, location merchant BRILink agents, BRI ATMs, and improved supportresponse flow—contributing to increased user satisfaction and operational efficiency.",
         tech: [
           "TypeScript",
           "React Native",
@@ -89,6 +137,7 @@ export default function ProjectDetails() {
         fullDescription:
           "Senyum Mobile is a comprehensive mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support. The app serves as a central hub for BRI's digital financial ecosystem, providing users with a seamless and intuitive interface to manage their financial needs.",
         image: "/placeholder.svg?height=600&width=800",
+        impact:"Enhanced user convenience through self-service access, location merchant BRILink agents, BRI ATMs, and improved supportresponse flow—contributing to increased user satisfaction and operational efficiency.",
         tech: [
           "TypeScript",
           "React Native",
@@ -272,7 +321,13 @@ export default function ProjectDetails() {
               </ul>
             </div>
 
-            <div className="mb-8">
+             <div className="mb-8">
+              <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Impact</h3>
+                         <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">{project.impact}</p>
+
+            </div>
+
+            {/* <div className="mb-8">
               <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Challenges</h3>
               <ul className="space-y-2">
                 {project.challenges.map((challenge, index) => (
@@ -294,7 +349,7 @@ export default function ProjectDetails() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             <div className="mt-12 rounded-xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 p-6">
               <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Want to work together?</h3>
