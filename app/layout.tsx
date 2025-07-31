@@ -53,7 +53,27 @@ export default function RootLayout({
         />
 
         {/* Open Graph Metadata for LinkedIn / Facebook */}
-        <meta property="og:title" content="Harun Al Rosyid | Developer Portfolio" />
+        <meta
+          property="title"
+          content="Harun Al Rosyid | Developer Portfolio"
+        />
+        <meta
+          property="odescription"
+          content="This is a Web Development showcase built by Harun Al Rosyid."
+        />
+        <meta property="url" content="https://elepantio.com" />
+        <meta property="type" content="website" />
+        <meta property="site_name" content="Elepantio" />
+        <meta
+          property="image"
+          content="https://elepantio.com/images/banner.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:title"
+          content="Harun Al Rosyid | Developer Portfolio"
+        />
         <meta
           property="og:description"
           content="This is a Web Development showcase built by Harun Al Rosyid."
@@ -70,7 +90,10 @@ export default function RootLayout({
 
         {/* Twitter Card Metadata (optional, tapi direkomendasikan) */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Harun Al Rosyid | Developer Portfolio" />
+        <meta
+          name="twitter:title"
+          content="Harun Al Rosyid | Developer Portfolio"
+        />
         <meta
           name="twitter:description"
           content="This is a Web Development showcase built by Harun Al Rosyid."
