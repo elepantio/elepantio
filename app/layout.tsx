@@ -16,8 +16,7 @@ export const metadata: Metadata = {
   description: "This is a Web Development showcase built by Harun Al Rosyid.",
   openGraph: {
     title: "Harun Al Rosyid | Developer Portfolio",
-    description:
-      "This is a Web Development showcase built by Harun Al Rosyid.",
+    description: "This is a Web Development showcase built by Harun Al Rosyid.",
     url: "https://elepantio.com",
     siteName: "Elepantio",
     images: [
@@ -33,8 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Harun Al Rosyid | Developer Portfolio",
-    description:
-      "This is a Web Development showcase built by Harun Al Rosyid.",
+    description: "This is a Web Development showcase built by Harun Al Rosyid.",
     images: ["https://elepantio.com/images/banner.jpg"],
   },
 };
@@ -48,6 +46,39 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <title>Harun Al Rosyid | Developer Portfolio</title>
+        <meta
+          name="description"
+          content="This is a Web Development showcase built by Harun Al Rosyid."
+        />
+
+        {/* Open Graph Metadata for LinkedIn / Facebook */}
+        <meta property="og:title" content="Harun Al Rosyid | Developer Portfolio" />
+        <meta
+          property="og:description"
+          content="This is a Web Development showcase built by Harun Al Rosyid."
+        />
+        <meta property="og:url" content="https://elepantio.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Elepantio" />
+        <meta
+          property="og:image"
+          content="https://elepantio.com/images/banner.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter Card Metadata (optional, tapi direkomendasikan) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Harun Al Rosyid | Developer Portfolio" />
+        <meta
+          name="twitter:description"
+          content="This is a Web Development showcase built by Harun Al Rosyid."
+        />
+        <meta
+          name="twitter:image"
+          content="https://elepantio.com/images/banner.jpg"
+        />
       </Head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
