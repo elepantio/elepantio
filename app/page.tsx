@@ -1,22 +1,23 @@
 "use client"
 
-import { useRef } from "react"
-import { useScroll, useTransform } from "framer-motion"
-import Navbar from "@/components/navbar"
-import HeroSection from "@/components/hero-section"
-import CollaborationSection from "@/components/collaboration-section"
-import ProjectsSection from "@/components/projects-section"
-import PortfolioCarousel from "@/components/portfolio-carousel"
-import FeatureSection from "@/components/feature-section"
-import ProcessSection from "@/components/process-section"
-import EducationSection from "@/components/education-section"
-import ContactSection from "@/components/contact-section"
-import CreatorSection from "@/components/creator-section"
-import ServicesOfferingSection from "@/components/services-offering-section"
-import ClientShowcase from "@/components/client-showcase"
-import Footer from "@/components/footer"
-import BackgroundPattern from "@/components/background-pattern"
-import TechStackMarquee from "@/components/tech-stack-marquee"
+import { useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
+import BackgroundPattern from '@/components/background-pattern';
+import ClientShowcase from '@/components/client-showcase';
+import CollaborationSection from '@/components/collaboration-section';
+import ContactSection from '@/components/contact-section';
+import CreatorSection from '@/components/creator-section';
+import EducationSection from '@/components/education-section';
+import FeatureSection from '@/components/feature-section';
+import Footer from '@/components/footer';
+import HeroSection from '@/components/hero-section';
+import Navbar from '@/components/navbar';
+import PortfolioCarousel from '@/components/portfolio-carousel';
+import ProcessSection from '@/components/process-section';
+import ProjectsSection from '@/components/projects-section';
+import ServicesOfferingSection from '@/components/services-offering-section';
+import TechStackMarquee from '@/components/tech-stack-marquee';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -37,7 +38,7 @@ export default function Home() {
         <HeroSection opacity={opacity} scale={scale} />
         {/* <CollaborationSection /> */}
         {/* <ProjectsSection /> */}
-        <PortfolioCarousel />
+        {/* <PortfolioCarousel /> */}
         {/* <TechStackMarquee />
         <ClientShowcase /> */}
         <FeatureSection />

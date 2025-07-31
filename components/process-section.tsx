@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { Briefcase, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import ExperienceModal from "./experience-modal";
-import { useLanguage } from "@/contexts/language-context";
+import { motion, useInView } from 'framer-motion';
+import { Briefcase, Download } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/language-context';
+
+import ExperienceModal from './experience-modal';
 
 export default function ProcessSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -219,7 +221,7 @@ export default function ProcessSection() {
           >
             <Button
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"
-              onClick={() => window.open("/resume.pdf", "_blank")}
+              onClick={() => window.open("cv/Harun Al Rosyid-resume -2025 -July.pdf", "_blank")}
             >
               <Download className="mr-2 h-4 w-4" /> {t("experience.download")}
             </Button>
