@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, type MotionValue } from "framer-motion";
-import { ArrowDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/language-context";
+import { motion, MotionValue } from 'framer-motion';
+import { useRef } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/language-context';
 
 interface HeroSectionProps {
   opacity: MotionValue<number>;
@@ -45,7 +45,7 @@ export default function HeroSection({ opacity, scale }: HeroSectionProps) {
           className="flex flex-col w-100"
         >
           <div className="mb-4 inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1 text-sm font-light tracking-widest text-purple-600 dark:text-purple-300">
-            WEB DEVELOPER • MOBILE DEVELOPER • QA
+            Software Developer
           </div>
 
           <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl">
