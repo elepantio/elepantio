@@ -1,13 +1,14 @@
 "use client"
 
-import { useState } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useMobile } from "@/hooks/use-mobile"
-import { ThemeToggle } from "@/components/theme-toggle"
-import LanguageToggle from "@/components/language-toggle"
-import { useLanguage } from "@/contexts/language-context"
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+
+import LanguageToggle from '@/components/language-toggle';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/language-context';
+import { useMobile } from '@/hooks/use-mobile';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,7 +30,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", id: "hero" },
     // { name: t("nav.about"), id: "collaboration" },
-    { name: "Projects", id: "projects" },
+    // { name: "Projects", id: "projects" },
     { name: "Skill", id: "features" },
     // { name: t("nav.techStack"), id: "tech-stack" },
     // { name: t("nav.clients"), id: "clients" },
@@ -79,7 +80,7 @@ export default function Navbar() {
             </nav>
           ) : (
             <div className="flex items-center gap-4">
-              <LanguageToggle />
+              {/* <LanguageToggle /> */}
               <ThemeToggle />
               <Button
                 variant="ghost"
