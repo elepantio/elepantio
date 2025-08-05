@@ -1,9 +1,10 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { Users, Sparkles, Lightbulb } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+import { motion, useInView } from 'framer-motion';
+import { Lightbulb, Sparkles, Users } from 'lucide-react';
+import { useRef } from 'react';
+
+import { useLanguage } from '@/contexts/language-context';
 
 export default function CollaborationSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -40,7 +41,6 @@ export default function CollaborationSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-12 md:grid-cols-2"
         >
           <motion.div variants={itemVariants} className="flex flex-col justify-center">
             <div className="mb-6 inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-sm text-purple-600 dark:text-purple-300">
@@ -78,20 +78,6 @@ export default function CollaborationSection() {
                 <p className="text-sm text-gray-600 dark:text-gray-400">{t("about.industry.desc")}</p>
               </div>
             </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="relative">
-            <div className="aspect-square overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/20 to-cyan-900/20 p-1">
-              <div className="h-full w-full overflow-hidden rounded-xl bg-white dark:bg-black">
-                <img
-                  src="/placeholder.svg?height=600&width=600"
-                  alt="Collaboration"
-                  className="h-full w-full object-cover opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent dark:from-black/70"></div>
-              </div>
-            </div>
-            <div className="absolute -bottom-6 -right-6 h-40 w-40 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 opacity-20 blur-3xl"></div>
           </motion.div>
         </motion.div>
       </div>
