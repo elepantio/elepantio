@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Elepantio",
     images: [
       {
-        url: "https://elepantio.com/images/banner.jpg",
+        url: "https://elepantio.com/img/banner.jpg",
         width: 1200,
         height: 630,
         alt: "Elepantio App Banner",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Harun Al Rosyid | Developer Portfolio",
     description: "This is a Web Development showcase built by Harun Al Rosyid.",
-    images: ["https://elepantio.com/images/banner.jpg"],
+    images: ["https://elepantio.com/img/banner.jpg"],
   },
 };
 
