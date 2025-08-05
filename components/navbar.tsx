@@ -29,13 +29,9 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", id: "hero" },
-    // { name: t("nav.about"), id: "collaboration" },
-    // { name: "Projects", id: "projects" },
+    { name: "Projects", id: "projects" },
     { name: "Skill", id: "features" },
-    // { name: t("nav.techStack"), id: "tech-stack" },
-    // { name: t("nav.clients"), id: "clients" },
     { name: "Services", id: "services-offering" },
-    // { name: t("nav.creator"), id: "creator" },
     { name:"Experiences", id: "process" },
     { name: "Contact", id: "contact" },
   ]
@@ -74,13 +70,11 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <div className="flex items-center space-x-4">
-                {/* <LanguageToggle /> */}
                 <ThemeToggle />
               </div>
             </nav>
           ) : (
             <div className="flex items-center gap-4">
-              {/* <LanguageToggle /> */}
               <ThemeToggle />
               <Button
                 variant="ghost"

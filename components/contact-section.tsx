@@ -2,20 +2,14 @@
 
 import type React from "react";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import {
-  MessageSquare,
-  Mail,
-  Phone,
-  Send,
-  Github,
-  Linkedin,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useLanguage } from "@/contexts/language-context";
+import { motion, useInView } from 'framer-motion';
+import { Github, Linkedin, Mail, MessageSquare, Phone, Send } from 'lucide-react';
+import { useRef, useState } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useLanguage } from '@/contexts/language-context';
 
 export default function ContactSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -191,16 +185,9 @@ export default function ContactSection() {
                 {t("contact.collaborate.desc")}
               </p>
               <div className="flex space-x-4">
+                
                 <a
-                  href="https://github.com/elepantio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-700 dark:text-white hover:bg-purple-500/20 transition-colors"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://github.com/jeevva"
+                  href="https://github.com/harun-alrosyid"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-700 dark:text-white hover:bg-purple-500/20 transition-colors"
@@ -208,7 +195,7 @@ export default function ContactSection() {
                   <Github className="h-5 w-5" />
                 </a>  
                 <a
-                  href="https://www.linkedin.com/in/harun-al-rosyid-bb5ba2161/"
+                  href="https://www.linkedin.com/in/harun-alrosyid"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-700 dark:text-white hover:bg-blue-500/20 transition-colors"

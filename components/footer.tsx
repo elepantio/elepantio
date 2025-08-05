@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUp, Github, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/language-context";
-import Tooltip from "./tooltip";
+import { motion } from 'framer-motion';
+import { ArrowUp, Github, Linkedin } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/language-context';
+
+import Tooltip from './tooltip';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -21,17 +23,12 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: <Github className="h-5 w-5" />,
-      href: "https://github.com/elepantio",
-      label: "GitHub",
-    },
-    {
-      icon: <Github className="h-5 w-5" />,
-      href: "https://github.com/jeevva",
+      href: "https://github.com/harun-alrosyid",
       label: "GitHub",
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
-      href: "https://www.linkedin.com/in/harun-al-rosyid-bb5ba2161/",
+      href: "https://www.linkedin.com/in/harun-alrosyid",
       label: "LinkedIn",
     },
   ];
