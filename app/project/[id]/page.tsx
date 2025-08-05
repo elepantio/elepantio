@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useParams, useRouter } from "next/navigation"
-import { motion } from "framer-motion"
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion } from 'framer-motion';
+import { ArrowLeft, Calendar, ExternalLink, Github, Tag } from 'lucide-react';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import { Button } from '@/components/ui/button';
 
 interface Project {
   id: string
@@ -31,7 +32,7 @@ export default function ProjectDetails() {
   const { id } = params
   const [project, setProject] = useState<Project | null>(null)
   const [loading, setLoading] = useState(true)
-
+  
   useEffect(() => {
     // In a real app, you would fetch this data from an API
     // For this example, we'll use mock data
@@ -326,30 +327,6 @@ export default function ProjectDetails() {
                          <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">{project.impact}</p>
 
             </div>
-
-            {/* <div className="mb-8">
-              <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Challenges</h3>
-              <ul className="space-y-2">
-                {project.challenges.map((challenge, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="mr-2 mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-red-600"></span>
-                    <span className="text-gray-700 dark:text-gray-300">{challenge}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mb-8">
-              <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Solutions</h3>
-              <ul className="space-y-2">
-                {project.solutions.map((solution, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="mr-2 mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-green-600"></span>
-                    <span className="text-gray-700 dark:text-gray-300">{solution}</span>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
 
             <div className="mt-12 rounded-xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 p-6">
               <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Want to work together?</h3>
