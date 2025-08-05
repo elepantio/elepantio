@@ -1,19 +1,16 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+
+import { Button } from '@/components/ui/button';
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
-import { useLanguage } from "@/contexts/language-context";
-import Link from "next/link";
+    Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle
+} from '@/components/ui/dialog';
+import { useLanguage } from '@/contexts/language-context';
+import { cn } from '@/lib/utils';
 
 interface Project {
   id: string;
@@ -46,6 +43,7 @@ export default function PortfolioCarousel() {
       subtitle: "Self Service - Mobile Application",
       company: "PT Bank Rakyat Indonesia (BRI)",
       duration: "Jan 2024 - Present",
+      image: "/img/portofolio/senyum.jpg",
       link: "https://play.google.com/store/apps/details?id=com.senyum&hl=id",
       description:
         "A mobile application designed for ultra-micro customers (UMi) to independently access digital financial services including account information, location merchant services, and customer support.",
@@ -67,6 +65,7 @@ export default function PortfolioCarousel() {
       subtitle: "Tenaga Pemasar - Web Application",
       company: "PT Bank Rakyat Indonesia (BRI)",
       duration: "Jan 2024 - Present",
+      image: "/img/portofolio/senyum.jpg",
       description:
         "A web-based cross-selling service for PNM, Pengadaian and BRI products used by BRILink marketing agents to help promote and manage financial products and services offered through the Senyum platform.",
       tech: "TypeScript, React.js, Redux Toolkit, Tailwind, SWR, React UseForm, Custom Hooks.",
@@ -86,6 +85,7 @@ export default function PortfolioCarousel() {
       title: "Senyum Dashboard",
       subtitle: "Web Admin Panel",
       company: "PT Bank Rakyat Indonesia (BRI)",
+      image: "/img/portofolio/senyum.jpg",
       duration: "Jan 2024 - Present",
       description:
         "A web-based admin panel designed to manage operational workflows for the Senyum platform, enabling backend processes such as unit pairing, identity validation, and customer data management across BRI, PNM, and Pegadaian.",
@@ -105,6 +105,7 @@ export default function PortfolioCarousel() {
       subtitle: "Dashboard Admin",
       company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
       duration: "Mar 2023 - Des 2023",
+      image: "/img/portofolio/grorex.jpg",
       description:
         "An internal web application for managing a B2B lending service, providing tools for customer data administration, user access control, and loan processing workflows",
       tech: "React.js, JavaScript, Redux Toolkit, Ant Design, Axios.",
@@ -123,6 +124,7 @@ export default function PortfolioCarousel() {
       subtitle: "Online Storage Service",
       company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
       duration: "Aug 2022 - Mar 2023",
+      image: "/img/portofolio/nexdrive.jpg",
       description:
         "A web-based online storage platform similar to Google Drive or OneDrive, tailored for enterprise service from Nexsoft.",
       tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI.",
@@ -141,6 +143,7 @@ export default function PortfolioCarousel() {
       subtitle: "Reusable UI Library",
       company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
       duration: "Jan 2022 - Aug 2022",
+      image: "/img/portofolio/nexcomponent.jpg",
       description:
         "An internal React UI component library developed for use across multiple Nexsoft products to ensure design consistency and reusability.",
       tech: "React.js, JavaScript, Bitbucket, NPM.",
@@ -157,6 +160,7 @@ export default function PortfolioCarousel() {
       subtitle: "Mapping Data Resource",
       company: "PT Paramadaksa Teknologi Nusantara (Nexsoft)",
       duration: "Jan 2022 - Aug 2022",
+      image: "/img/portofolio/nexhub.jpg",
       description:
         "A data mapping platform that centralizes customer, principal, and resource data for use across Nexsoft’s suite of applications.",
       tech: "React.js, JavaScript, Redux Toolkit, Axios, NexComponent UI.",
@@ -177,6 +181,7 @@ export default function PortfolioCarousel() {
       company: "OPUS IT Services Pte Ltd",
       duration: "Jan 2021 - Mar 2021",
       link: "https://www.recruitmenthubasia.com",
+      image: "/img/portofolio/reruitmenthubasia.jpg",
       description:
         "A company profile and job portal site built on WordPress with custom database triggers for job listing integration.",
       tech: "WordPress, PHP, MySQL, HTML, CSS, JavaScript.",
@@ -195,7 +200,9 @@ export default function PortfolioCarousel() {
       subtitle: "Multi-PHP Apache Server",
       company: "OPUS IT Services Pte Ltd",
       duration: "Feb 2021 - Mar 2021",
-      link: "https://github.com/jeevva/httpd-customize-multi-php",
+      image:
+        "https://user-images.githubusercontent.com/38546311/106383423-6ad03000-63f8-11eb-9313-808e0241c0cd.PNG",
+      link: "https://github.com/harun-alrosyid/httpd-customize-multi-php",
       description:
         "A customized Apache server setup capable of running multiple PHP versions concurrently to support legacy and modern systems.",
       tech: "",
@@ -351,7 +358,11 @@ export default function PortfolioCarousel() {
                   >
                     <div className="relative mb-4 h-[250px] overflow-hidden rounded-xl">
                       <div
-                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 blur-sm transition-all duration-500`}
+                        className={`absolute inset-0 ${
+                          project.image
+                            ? `{bg-gradient-to-br ${project.gradient}}`
+                            : ""
+                        } opacity-20 blur-sm transition-all duration-500`}
                       ></div>
                       <img
                         src={project.image || "/placeholder.svg"}
@@ -407,22 +418,28 @@ export default function PortfolioCarousel() {
 
       {/* Project Details Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto bg-white p-0 dark:bg-gray-900">
+        <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto p-0 dark:bg-gray-900">
           {selectedProject && (
             <div>
               <div
-                className={`relative h-[200px] w-full overflow-hidden bg-gradient-to-r ${selectedProject.gradient}`}
+                className={`relative h-[60%] w-full overflow-hidden  ${
+                  selectedProject.image
+                    ? `{bg-gradient-to-br ${selectedProject.gradient}}`
+                    : ""
+                }`}
               >
                 <img
                   src={selectedProject.image || "/placeholder.svg"}
                   alt={selectedProject.title}
                   className="h-full w-full object-cover opacity-50"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h2 className="text-3xl font-bold text-white">
-                    {selectedProject.title}
-                  </h2>
-                </div>
+                {!selectedProject.image && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <h2 className="text-3xl font-bold text-white">
+                      {selectedProject.title}
+                    </h2>
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <DialogHeader>
@@ -480,7 +497,12 @@ export default function PortfolioCarousel() {
                   </div>
                   <div className="flex flex-wrap gap-4 pt-4">
                     {selectedProject.link && (
-                      <Button className="bg-gradient-to-r from-purple-600 to-blue-600">
+                      <Button
+                        className="bg-gradient-to-r from-purple-600 to-blue-600"
+                        onClick={() =>
+                          window.open(selectedProject.link, "_blank")
+                        }
+                      >
                         <ExternalLink className="mr-2 h-4 w-4" /> Visit Project
                       </Button>
                     )}
@@ -488,6 +510,9 @@ export default function PortfolioCarousel() {
                       <Button
                         variant="outline"
                         className="border-purple-500/50"
+                        onClick={() =>
+                          window.open(selectedProject.github, "_blank")
+                        }
                       >
                         <Github className="mr-2 h-4 w-4" /> View Code
                       </Button>
