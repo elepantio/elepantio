@@ -221,7 +221,7 @@ export default function ProcessSection() {
           >
             <Button
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"
-              onClick={() => window.open("cv/Harun Al Rosyid-resume -2025 -July.pdf", "_blank")}
+              onClick={() => window.open("cv/Harun Al Rosyid-resume - 2025 - Aug.pdf", "_blank")}
             >
               <Download className="mr-2 h-4 w-4" /> {t("experience.download")}
             </Button>
