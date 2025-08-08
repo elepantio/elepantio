@@ -168,7 +168,7 @@ export default function ProcessSection() {
   const isShow = windowDimensions.width > 768;
 
   return (
-    <section id="process" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="experience" className="relative overflow-hidden py-24 sm:py-32">
       <div className="absolute top-0 right-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[100px]"></div>
       <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-purple-600/10 blur-[100px]"></div>
 

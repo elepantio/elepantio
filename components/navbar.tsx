@@ -32,7 +32,7 @@ export default function Navbar() {
     { name: "Projects", id: "projects" },
     { name: "Skill", id: "features" },
     { name: "Services", id: "services-offering" },
-    { name:"Experiences", id: "process" },
+    { name:"Experiences", id: "experience" },
     { name: "Contact", id: "contact" },
   ]
 

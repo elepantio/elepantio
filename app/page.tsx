@@ -1,7 +1,7 @@
 "use client"
 
 import { useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import BackgroundPattern from '@/components/background-pattern';
 import CollaborationSection from '@/components/collaboration-section';
@@ -24,6 +24,13 @@ export default function Home() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95])
+
+  useEffect(() => {
+    if (window.location.hash === '#experience') {
+      const el = document.getElementById('experience');
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
 
   return (
     <div ref={containerRef} className="relative">
