@@ -67,7 +67,7 @@ export async function GET(request: Request) {
             ]
         },
         {
-            "question":"Bagaimana bentuk password yang baik dan aman?",
+            "question":"4. Bagaimana bentuk password yang baik dan aman?",
             "answer":[
                 {
                     "lable":"A. Kop!Pag1Enak",
@@ -88,7 +88,7 @@ export async function GET(request: Request) {
             ]
         },
         {
-            "question":"Hal apa yang bisa dilakukan di BRImo tapi belum ada di SenyuM?",
+            "question":"5. Hal apa yang bisa dilakukan di BRImo tapi belum ada di SenyuM?",
             "multipleChoice":[
                 {
                     "lable":"A. Pembukaan Tabungan Emas",
