@@ -106,7 +106,7 @@ export function GET(request: NextRequest) {
               {
                 icon: "https://storage.googleapis.com/ceria-public-assets/senyum-mobile-product-info/CicilEmas-Alur-1.svg",
                 type: "success",
-                content: "Contoh yang benar: \nAkhmad.Ramadhan, ARamadhan45",
+                content: "`Contoh yang benar:` \nAkhmad.Ramadhan, ARamadhan45",
               },
               {
                 icon: "https://storage.googleapis.com/ceria-public-assets/senyum-mobile-product-info/CicilEmas-Alur-1.svg",
