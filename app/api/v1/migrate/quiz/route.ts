@@ -68,7 +68,7 @@ export async function GET(request: Request) {
         },
         {
             "question":"4. Bagaimana bentuk password yang baik dan aman?",
-            "answer":[
+            "multipleChoice":[
                 {
                     "lable":"A. Kop!Pag1Enak",
                     "value":"A"
