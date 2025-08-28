@@ -117,7 +117,7 @@ export function GET(request: NextRequest) {
                 icon: "https://storage.googleapis.com/ceria-public-assets/senyum-mobile-product-info/CicilEmas-Alur-1.svg",
                 type: "info",
                 content:
-                  "**Jangan pernah kasih tahu Username, Password, dan PIN kamu ke orang lain. **",
+                  "**Jangan pernah kasih tahu Username, Password, dan PIN kamu ke orang lain.**",
               },
               {
                 icon: "https://storage.googleapis.com/ceria-public-assets/senyum-mobile-product-info/CicilEmas-Alur-1.svg",
